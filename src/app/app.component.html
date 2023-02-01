@@ -1,1 +1,70 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Dario</span>
+    <span class="spacer"></span>
+    <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-drawer-container class="side-container">
+    <mat-drawer #drawer mode="side" class="side-drawer">
+        <mat-accordion>
+            <mat-expansion-panel class="exp-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>troubleshoot</mat-icon>Торговля
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item>
+                        Торговый агент
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Открытые позиции
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Закрытые позиции
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Графики
+                    </mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="exp-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>history</mat-icon>Исторические данные
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item>Item 11</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Item 22</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+
+        <app-logon></app-logon>
+
+        <!-- <button mat-flat-button>Basic</button>
+        <button mat-flat-button color="primary">Primary</button>
+        <button mat-flat-button color="accent">Accent</button>
+        <button mat-flat-button color="warn">Warn</button>
+        <button mat-flat-button disabled>Disabled</button> -->
+        
+    </mat-drawer-content>
+</mat-drawer-container>
