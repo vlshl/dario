@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Тикер</th>
+        <th>Наименование</th>
+        <th>Тип</th>
+        <th>Дата открытия</th>
+        <th>Цена</th>
+        <th>Лотов</th>
+        <th>Сумма</th>
+        <th>Тек. цена</th>
+        <!-- <th>Тек. сумма</th> -->
+        <th>Прибыль (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.ticker}}</td>
+        <td>{{item.shortName}}</td>
+        <td>{{item.posTypeStr}}</td>
+        <td>{{item.openTime | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+        <td>{{item.openPrice}}</td>
+        <td>{{item.lots}}</td>
+        <td>{{item.summa}}</td>
+        <td>{{item.curPrice}}</td>
+        <!-- <td>{{item.curSumma}}</td> -->
+        <td>{{item.profit | number:'1.2-2'}} ({{item.profitPerc | number:'1.2-2'}}%)</td>
+      </tr>
+    </tbody>
+  </table>

@@ -10,16 +10,35 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LogonComponent } from './logon/logon.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { LogonComponent } from './components/logon/logon.component';
+import { TestConfigListComponent } from './components/test-config/test-config-list.component';
+import { TestConfigComponent } from './components/test-config/test-config.component';
+import { TickSourceComponent } from './components/tick-source/tick-source.component';
+import { TickSourceListComponent } from './components/tick-source/tick-source-list.component';
+import { OpenPosListComponent } from './components/position/open-pos-list.component';
+import { ClosePosListComponent } from './components/position/close-pos-list.component';
+import { LeechComponent } from './components/leech/leech.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogonComponent
+    LogonComponent,
+    TestConfigListComponent,
+    TestConfigComponent,
+    TickSourceComponent,
+    TickSourceListComponent,
+    OpenPosListComponent,
+    ClosePosListComponent,
+    LeechComponent,
+    ChartComponent
+
   ],
   imports: [
     BrowserModule,
@@ -34,9 +53,12 @@ import { LogonComponent } from './logon/logon.component';
     MatExpansionModule,
     MatCardModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

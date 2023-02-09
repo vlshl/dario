@@ -1,0 +1,29 @@
+<div id="canvasbox">
+    <canvas id="canvas">
+        <p>Ваш браузер не поддерживает рисование.</p>
+    </canvas>
+</div>
+
+<div class="panel">
+    <div>
+        <label for="ticker">Тикер</label>
+        <input id="ticker" [(ngModel)]="ticker">
+    </div>
+    <div>
+        <label for="timeframe">Таймфрейм</label>
+        <select id="timeframe" [(ngModel)]="timeframe">
+            <option value="1">Min 1</option>
+            <option value="2">Min 5</option>
+            <option value="3">Min 10</option>
+            <option value="4">Min 15</option>
+            <option value="5">Min 20</option>
+            <option value="6">Min 30</option>
+            <option value="7">Hour</option>
+            <option value="8">Day</option>
+            <option value="9">Week</option>
+        </select>
+    </div>
+    <div>
+        <button mat-button (click)="showChart()">Показать</button>
+    </div>
+</div>

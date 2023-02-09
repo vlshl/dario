@@ -1,0 +1,8 @@
+@import "~@angular/material/theming";
+@import "../../../styles.scss";
+
+th {
+    background-color: mat-color($dario-primary, 100);
+    color: #000;
+    font-weight: normal;
+}

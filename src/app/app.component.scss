@@ -1,35 +1,8 @@
-@import "~@angular/material/theming";
-@import "../styles.scss";
-
 .spacer {
     flex: 1 1 auto;
 }
 
-.side-container {
+.main-box {
     width: 100%;
     height: calc(100vh - 64px);
 }
-
-mat-list-item {
-    cursor: pointer;
-}
-
-mat-expansion-panel {
-    margin: 5px;
-}
-
-.exp-panel {
-    background-color: mat-color($dario-menu, 300);
-}
-
-mat-list-item:hover {
-    background-color: mat-color($dario-menu, 200);
-}
-
-.side-drawer {
-    width: 20%;
-    background-color: mat-color($dario-menu, 400);
-    border-right: solid 1px mat-color($dario-menu, 500);
-}
-
-

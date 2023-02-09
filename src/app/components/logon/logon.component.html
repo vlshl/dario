@@ -1,0 +1,122 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>Вход в систему</mat-card-title>
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+        <br>
+
+        <mat-card-content>
+            <mat-form-field class="field">
+                <mat-label>Логин:</mat-label>
+                <input matInput [(ngModel)]="login">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field">
+                <mat-label>Пароль:</mat-label>
+                <input matInput [(ngModel)]="password" type="password">
+            </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-flat-button color="primary" (click)="logon()">Войти</button>
+        </mat-card-actions>
+
+        <div class="error">{{error}}</div>
+    </mat-card>
+</div>
+
+
+
+
+<!-- <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Тикер</th>
+        <th>Наименование</th>
+        <th>Тип</th>
+        <th>Дата открытия</th>
+        <th>Цена</th>
+        <th>Лотов</th>
+        <th>Сумма</th>
+        <th>Тек. цена</th>
+        <th>Тек. сумма</th>
+        <th>Прибыль (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+      <tr>
+        <td>item.ticker</td>
+        <td>item.shortName</td>
+        <td>item.posTypeStr</td>
+        <td>item.openTime | date: 'dd.MM.yyyy HH:mm:ss'</td>
+        <td>item.openPrice</td>
+        <td>item.lots</td>
+        <td>item.summa</td>
+        <td>item.curPrice</td>
+        <td>item.curSumma</td>
+        <td>item.profit | number:'1.2-2' (item.profitPerc | number:'1.2-2'%)</td>
+      </tr>
+    </tbody>
+  </table> -->

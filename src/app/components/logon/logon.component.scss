@@ -1,5 +1,5 @@
 @import "~@angular/material/theming";
-@import "../../styles.scss";
+@import "../../../styles.scss";
 
 .container {
     width: 100%;
@@ -11,7 +11,7 @@
 
 .card {
     width: 300px;
-    background-color: mat-color($dario-menu, 200);
+    background-color: mat-color($dario-menu, 300);
 }
 
 .field {
@@ -29,3 +29,9 @@ button {
 mat-divider {
     background-color: mat-color($dario-menu, 500);
 }
+
+// th {
+//     background-color: mat-color($dario-primary, 500);
+//     color: #fff;
+//     font-weight: normal;
+// }
