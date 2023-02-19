@@ -5,25 +5,29 @@
 </div>
 
 <div class="panel">
-    <div>
-        <label for="ticker">Тикер</label>
-        <input id="ticker" [(ngModel)]="ticker">
-    </div>
-    <div>
-        <label for="timeframe">Таймфрейм</label>
-        <select id="timeframe" [(ngModel)]="timeframe">
-            <option value="1">Min 1</option>
-            <option value="2">Min 5</option>
-            <option value="3">Min 10</option>
-            <option value="4">Min 15</option>
-            <option value="5">Min 20</option>
-            <option value="6">Min 30</option>
-            <option value="7">Hour</option>
-            <option value="8">Day</option>
-            <option value="9">Week</option>
-        </select>
-    </div>
-    <div>
-        <button mat-button (click)="showChart()">Показать</button>
-    </div>
+    <mat-form-field class="ticker">
+        <mat-label>Инструмент</mat-label>
+        <mat-select [(value)]="instrum">
+            <mat-option *ngFor="let ins of instrums" [value]="ins">
+                {{ins.ticker}} {{ins.shortName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="timeframe">
+        <mat-label>Таймфрейм</mat-label>
+        <mat-select [(value)]="timeframe">
+            <mat-option [value]="1">Min 1</mat-option>
+            <mat-option [value]="2">Min 5</mat-option>
+            <mat-option [value]="3">Min 10</mat-option>
+            <mat-option [value]="4">Min 15</mat-option>
+            <mat-option [value]="5">Min 20</mat-option>
+            <mat-option [value]="6">Min 30</mat-option>
+            <mat-option [value]="7">Hour</mat-option>
+            <mat-option [value]="8">Day</mat-option>
+            <mat-option [value]="9">Week</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-icon-button (click)="showChart()" [disabled]="instrum === null" ><mat-icon>arrow_forward</mat-icon></button>
 </div>

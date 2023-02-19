@@ -10,7 +10,7 @@ import { OpenPosListComponent } from './components/position/open-pos-list.compon
 import { ClosePosListComponent } from './components/position/close-pos-list.component';
 import { LeechComponent } from './components/leech/leech.component';
 import { ChartComponent } from './components/chart/chart.component';
-
+import { InstrumListComponent } from './components/instrum-list/instrum-list.component';
 
 const routes: Routes = [
   { path: 'logon', component: LogonComponent },
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'open-pos-list', component: OpenPosListComponent, canActivate: [AuthGuard] },
   { path: 'close-pos-list', component: ClosePosListComponent, canActivate: [AuthGuard] },
   { path: 'chart', component: ChartComponent, canActivate: [AuthGuard] },
+  { path: 'instrum', component: InstrumListComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 

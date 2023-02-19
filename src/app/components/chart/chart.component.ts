@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Instrum } from 'src/app/common/instrum';
 import { Chart } from 'src/app/drawing/chart';
 import { Graphics } from 'src/app/drawing/graphics';
 import { Timeline } from 'src/app/drawing/timeline';
@@ -13,8 +14,10 @@ import { InstrumService } from 'src/app/services/instrum.service';
 })
 export class ChartComponent implements OnInit {
 
-  public ticker = '';
-  public timeframe = 1;
+  public instrum: Instrum | null = null;
+  public timeframe: number = 8;
+  public instrums: Instrum[] = [];
+
   private chart: Chart;
   private isMouseDown = false;
 
@@ -23,6 +26,8 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.instrums = this.instrumSvc.getInstrumList(true, false);
+
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const canvasbox = document.getElementById('canvasbox') as HTMLDivElement;
     canvas.width = canvasbox.clientWidth; 
@@ -48,7 +53,9 @@ export class ChartComponent implements OnInit {
   }
 
   showChart() {
-    const instrum = this.instrumSvc.getInstrumByTicker(this.ticker);
+    if (this.instrum === null) return;
+
+    const instrum = this.instrumSvc.getInstrumByTicker(this.instrum.ticker);
     if (instrum == null) { return; }
 
     const insId = instrum.insID;

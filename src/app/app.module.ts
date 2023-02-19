@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
@@ -25,6 +27,7 @@ import { OpenPosListComponent } from './components/position/open-pos-list.compon
 import { ClosePosListComponent } from './components/position/close-pos-list.component';
 import { LeechComponent } from './components/leech/leech.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { InstrumListComponent } from './components/instrum-list/instrum-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { ChartComponent } from './components/chart/chart.component';
     OpenPosListComponent,
     ClosePosListComponent,
     LeechComponent,
-    ChartComponent
+    ChartComponent,
+    InstrumListComponent
 
   ],
   imports: [
@@ -54,7 +58,9 @@ import { ChartComponent } from './components/chart/chart.component';
     MatCardModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

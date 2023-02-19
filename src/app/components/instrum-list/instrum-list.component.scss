@@ -6,3 +6,13 @@ th {
     color: #fff;
     font-weight: normal;
 }
+
+.filter-bar {
+    background-color: mat-color($dario-secondary, 100);
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.filter-item {
+    margin: 10px;
+}

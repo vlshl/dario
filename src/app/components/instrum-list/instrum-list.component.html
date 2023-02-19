@@ -1,0 +1,31 @@
+<div class="filter-bar">
+    <mat-checkbox [(ngModel)]="isFav" (change)="onFilter()" class="filter-item">Избранные</mat-checkbox>
+    <mat-checkbox [(ngModel)]="isActive" (change)="onFilter()" class="filter-item">Активные</mat-checkbox>
+</div>
+
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Избранные</th>
+        <th>Активные</th>
+        <th>Тикер</th>
+        <th>Наименование</th>
+        <th>Полное наименование</th>
+        <th>Размер лота</th>
+        <th>Кол-во знаков</th>
+        <th>Шаг цены</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td><mat-checkbox [checked]="isFavInstrum(item.insID)" (change)="onFavClick(item.insID, $event.checked)"></mat-checkbox></td>
+        <td><mat-icon *ngIf="isActiveInstrum(item.insID)">query_stats</mat-icon></td>
+        <td>{{item.ticker}}</td>
+        <td>{{item.shortName}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.lotSize}}</td>
+        <td>{{item.decimals}}</td>
+        <td>{{item.priceStep}}</td>
+      </tr>
+    </tbody>
+  </table>
