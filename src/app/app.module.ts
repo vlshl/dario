@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
@@ -28,6 +30,8 @@ import { ClosePosListComponent } from './components/position/close-pos-list.comp
 import { LeechComponent } from './components/leech/leech.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { InstrumListComponent } from './components/instrum-list/instrum-list.component';
+import { PluginComponent } from './components/plugin/plugin.component';
+import { PluginManComponent } from './components/plugin-man/plugin-man.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +45,9 @@ import { InstrumListComponent } from './components/instrum-list/instrum-list.com
     ClosePosListComponent,
     LeechComponent,
     ChartComponent,
-    InstrumListComponent
-
+    InstrumListComponent,
+    PluginComponent,
+    PluginManComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import { InstrumListComponent } from './components/instrum-list/instrum-list.com
     FormsModule,
     HttpClientModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatMenuModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

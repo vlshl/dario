@@ -11,6 +11,8 @@ import { ClosePosListComponent } from './components/position/close-pos-list.comp
 import { LeechComponent } from './components/leech/leech.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { InstrumListComponent } from './components/instrum-list/instrum-list.component';
+import { PluginComponent } from './components/plugin/plugin.component';
+import { PluginManComponent } from './components/plugin-man/plugin-man.component';
 
 const routes: Routes = [
   { path: 'logon', component: LogonComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'close-pos-list', component: ClosePosListComponent, canActivate: [AuthGuard] },
   { path: 'chart', component: ChartComponent, canActivate: [AuthGuard] },
   { path: 'instrum', component: InstrumListComponent, canActivate: [AuthGuard] },
+  { path: 'plugin', component: PluginComponent, canActivate: [AuthGuard] },
+  { path: 'plugin-man', component: PluginManComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 

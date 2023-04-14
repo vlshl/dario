@@ -3,21 +3,28 @@
 
     <span class="spacer"></span>
 
-    <button mat-button routerLink="chart" >
+    <button mat-button routerLink="chart">
         <mat-icon>show_chart</mat-icon>Графики
     </button>
-    <button mat-button routerLink="leech" >
+    <button mat-button routerLink="leech">
         <mat-icon>troubleshoot</mat-icon>Агент
     </button>
-    <button mat-button routerLink="open-pos-list" >
+    <button mat-button routerLink="open-pos-list">
         <mat-icon>monitoring</mat-icon>Открытые позиции
     </button>
-    <button mat-button routerLink="close-pos-list" >
+    <button mat-button routerLink="close-pos-list">
         <mat-icon>download_done</mat-icon>Закрытые позиции
     </button>
-    <button mat-button routerLink="instrum" >
+    <button mat-button routerLink="instrum">
         <mat-icon>list</mat-icon>Инструменты
     </button>
+
+    <button mat-button [matMenuTriggerFor]="menu" (click)="refreshPlugins()"><mat-icon>extension</mat-icon>Плагины</button>
+    <mat-menu #menu>
+        <button mat-menu-item *ngFor="let p of plugins" (click)="onPlugin(p.key)"><mat-icon *ngIf="!p.state">block</mat-icon>{{p.name}}</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="plugin-man"><mat-icon>settings</mat-icon>Управление</button>
+    </mat-menu>
 
     <span class="spacer"></span>
     <button mat-button (click)="logout()">

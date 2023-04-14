@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { InstrumService } from 'src/app/services/instrum.service';
+import { PluginService } from 'src/app/services/plugin.service';
 
 @Component({
   selector: 'app-logon',
@@ -13,7 +14,7 @@ export class LogonComponent implements OnInit {
   password = '';
   error = '';
 
-  constructor(private authSvc: AuthService, private router: Router, private instrumSvc: InstrumService) { }
+  constructor(private authSvc: AuthService, private router: Router, private instrumSvc: InstrumService, private pluginSvc: PluginService) { }
 
   ngOnInit(): void {
   }
