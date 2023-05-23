@@ -16,3 +16,8 @@ export interface PxPluginInfo {
     name: string;
     state: boolean;
 }
+
+export interface PxCellStyle {
+    foreColor: string;
+    backColor: string;
+}

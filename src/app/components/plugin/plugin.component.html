@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let r of list">
-            <td *ngFor="let c of cols">{{getCell(r, c)}}</td>
+            <td *ngFor="let c of cols" [style.color]="getForeColor(r, c)" [style.background-color]="getBackColor(r, c)">{{getCell(r, c)}}</td>
         </tr>
     </tbody>
   </table>

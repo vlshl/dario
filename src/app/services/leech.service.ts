@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { LastPrice } from '../common/last-price';
 
 const httpOptions = {
@@ -31,5 +31,10 @@ export class LeechService {
 
   getLastPrices(tickers: string): Observable<LastPrice[]> {
     return this.http.get<LastPrice[]>(this.config.getApiUrl('leech/lastprice/' + tickers));
+  }
+
+  getLastTickTs(): Observable<Date> {
+    return this.http.get<string>(this.config.getApiUrl('leech/lasttickts'))
+    .pipe(map(r => new Date(Date.parse(r))));
   }
 }

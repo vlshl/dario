@@ -11,12 +11,14 @@ export class LeechComponent implements OnInit {
 
   ident = '';
   state = '';
+  lastTickTs: Date | null = null;
 
   constructor(private leechSvc: LeechService, private posSvc: PositionService) { }
 
   ngOnInit(): void {
     this.leechSvc.getIdentity().subscribe(r => {
       this.ident = r;
+      this.refreshLastTickTs();
     }, err => {
       console.log(err);
     });
@@ -59,6 +61,12 @@ export class LeechComponent implements OnInit {
     }, err => {
       this.state = 'Ошибка обновления';
       console.log(err);
+    });
+  }
+
+  refreshLastTickTs() {
+    this.leechSvc.getLastTickTs().subscribe(r => {
+      this.lastTickTs = r;
     });
   }
 

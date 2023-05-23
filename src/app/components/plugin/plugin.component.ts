@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { PxColumn } from 'src/app/common/px-plugin';
+import { PxCellStyle, PxColumn } from 'src/app/common/px-plugin';
 import { PluginService } from 'src/app/services/plugin.service';
 
 @Component({
@@ -42,5 +42,26 @@ export class PluginComponent implements OnInit, OnDestroy {
 
   getCell(r: any, c: PxColumn) {
     return r[c.key];
+  }
+
+  getCellStyle(r: any, c: PxColumn): PxCellStyle | null {
+    if (!r.styles) return null;
+    if (!r.styles[c.key]) return null;
+
+    return r.styles[c.key];
+  }
+
+  getForeColor(r: any, c: PxColumn): string {
+    let style = this.getCellStyle(r, c);
+    if (style === null) return '';
+
+    return style.foreColor;
+  }
+
+  getBackColor(r: any, c: PxColumn): string {
+    let style = this.getCellStyle(r, c);
+    if (style === null) return '';
+
+    return style.backColor;
   }
 }

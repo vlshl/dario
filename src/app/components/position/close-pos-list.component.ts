@@ -18,6 +18,7 @@ export class ClosePosListComponent implements OnInit {
   ngOnInit(): void {
     this.posSvc.getClosePos().subscribe(res => {
       this.items = res.map(p => new ClosePosItem(this.insSvc, p));
+      this.items.sort((a, b) => new Date(a.closeTime!).getTime() - new Date(b.closeTime!).getTime());
     }, err => {
       console.log(err);
     });

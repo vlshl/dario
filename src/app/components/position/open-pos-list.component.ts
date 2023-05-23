@@ -20,6 +20,8 @@ export class OpenPosListComponent implements OnInit, OnDestroy {
     this.posSvc.getOpenPos().subscribe({
       next: (res) => {
         this.items = res.map(p => new OpenPosItem(this.insSvc, p));
+        this.items.sort((a, b) => new Date(a.openTime).getTime() - new Date(b.openTime).getTime());
+        this.refreshPrices(this.leechSvc, this.items);
         this.intervalId = setInterval(this.refreshPrices, 10000, this.leechSvc, this.items);
       },
       error: (err) => {
