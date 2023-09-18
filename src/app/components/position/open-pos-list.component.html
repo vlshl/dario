@@ -6,10 +6,9 @@
         <th>Тип</th>
         <th>Дата открытия</th>
         <th>Цена</th>
-        <th>Лотов</th>
+        <th>Лотов (бумаг)</th>
         <th>Сумма</th>
         <th>Тек. цена</th>
-        <!-- <th>Тек. сумма</th> -->
         <th>Прибыль (%)</th>
       </tr>
     </thead>
@@ -17,13 +16,12 @@
       <tr *ngFor="let item of items">
         <td>{{item.ticker}}</td>
         <td>{{item.shortName}}</td>
-        <td>{{item.posTypeStr}}</td>
+        <td>{{getPosTypeStr(item.posType)}}</td>
         <td>{{item.openTime | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
         <td>{{item.openPrice}}</td>
-        <td>{{item.lots}}</td>
-        <td>{{item.summa}}</td>
+        <td>{{item.lots}} ({{item.count}})</td>
+        <td>{{item.openSumma}}</td>
         <td>{{item.curPrice}}</td>
-        <!-- <td>{{item.curSumma}}</td> -->
         <td>{{item.profit | number:'1.2-2'}} ({{item.profitPerc | number:'1.2-2'}}%)</td>
       </tr>
     </tbody>

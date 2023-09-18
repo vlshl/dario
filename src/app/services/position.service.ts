@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { Observable } from 'rxjs';
 import { TradePosition } from '../common/trade-position';
+import { OpenPosItem } from '../common/open-pos-item';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class PositionService {
 
   constructor(private http: HttpClient, private config: ConfigService) { }
 
-  getOpenPos(): Observable<TradePosition[]> {
-    return this.http.get<TradePosition[]>(this.config.getApiUrl('positions/open'));
+  getOpenPos(): Observable<OpenPosItem[]> {
+    return this.http.get<OpenPosItem[]>(this.config.getApiUrl('positions/open'));
   }
 
   getClosePos(): Observable<TradePosition[]> {

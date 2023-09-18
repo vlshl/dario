@@ -17,18 +17,9 @@ export class OpenPosListComponent implements OnInit, OnDestroy {
   constructor(private posSvc: PositionService, private insSvc: InstrumService, private leechSvc: LeechService) { }
 
   ngOnInit(): void {
-    this.posSvc.getOpenPos().subscribe({
-      next: (res) => {
-        this.items = res.map(p => new OpenPosItem(this.insSvc, p));
-        this.items.sort((a, b) => new Date(a.openTime).getTime() - new Date(b.openTime).getTime());
-        this.refreshPrices(this.leechSvc, this.items);
-        this.intervalId = setInterval(this.refreshPrices, 10000, this.leechSvc, this.items);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  }
+    this.refreshPrices(this);
+    this.intervalId = setInterval(this.refreshPrices, 10000, this);
+}
 
   ngOnDestroy(): void {
     if (this.intervalId) {
@@ -36,22 +27,19 @@ export class OpenPosListComponent implements OnInit, OnDestroy {
     }
   }
 
-  refreshPrices(leechSvc: LeechService, items: OpenPosItem[]) {
-    const tickers = items.map(r => r.ticker).join(',');
-    leechSvc.getLastPrices(tickers).subscribe({
-      next: (prices) => {
-        if (prices !== null) {
-          for (let i = 0; i < items.length; i++) {
-            const found = prices.find(p => p.ticker === items[i].ticker);
-            if (found) {
-              items[i].setCurrentPrice(found.price);
-            }
-          }
-        }
+  refreshPrices(ctx: any) {
+    const svc = ctx.posSvc as PositionService;
+    svc.getOpenPos().subscribe({
+      next: (res) => {
+        ctx.items = res;
       },
       error: (err) => {
         console.log(err);
       }
     });
+  }
+
+  getPosTypeStr(posType: number) {
+    return posType == 0 ? "Long" : "Short";
   }
 }
